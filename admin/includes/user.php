@@ -1,6 +1,12 @@
 <?php
 class User {
 
+	public $id;
+	public $userName;
+	public $firstName;
+	public $lastName;
+	public $password;
+
 	public static function findAllUsers(){
 		return  self::findThisQuery("SELECT * FROM users");
 	} //end findAllUser method
@@ -16,6 +22,15 @@ class User {
 		$resultSet = $database->query($sql); // executing query method from database class and catching query using $sql variable
 		return $resultSet; // returning resultSet
 	} //end findThisQuery
+
+	public static function instantiation($foundUser){
+		$theObject = new self;
+		$theObject->id = $foundUser['id'];
+        $theObject->userName = $foundUser['userName'];
+        $theObject->firstName = $foundUser['firstName'];
+        $theObject->lastName = $foundUser['lastName'];
+        return $theObject;
+	}
 
 
 } //end User class
