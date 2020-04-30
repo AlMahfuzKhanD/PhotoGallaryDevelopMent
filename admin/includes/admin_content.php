@@ -30,7 +30,8 @@
 
                         $foundUser = User::findUsersById(2);
                         echo $foundUser->userName;
-                        $pictures = new Picture();
+                        
+                        
                      
                         
                         
