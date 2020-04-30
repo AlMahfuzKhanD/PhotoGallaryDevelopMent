@@ -12,9 +12,18 @@ class User {
 	} //end findAllUser method
 
 	public static function findUsersById($userId){
-		$resultSet = self::findThisQuery("SELECT * FROM users WHERE id =$userId LIMIT 1");
-		$userFound = mysqli_fetch_array($resultSet); // fetching data and saving int in a variable
-		return $userFound; //sending data
+		$theResultArray = self::findThisQuery("SELECT * FROM users WHERE id =$userId LIMIT 1");
+
+		return !empty($theResultArray) ? array_shift($theResultArray) : false;
+
+		// if(!empty($TheResultArray;)){
+		// 	$firstItem = array_shift($theResultArray); // return first item of the array
+		// 	return $firstItem;
+		// }else{
+		// 	return false;
+		// }
+
+		//return $TheResultArray; //sending data
 	} //end findUserById method
 
 	public static function findThisQuery($sql){ //this method for query

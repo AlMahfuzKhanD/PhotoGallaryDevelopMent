@@ -23,10 +23,13 @@
                         
                         // echo $user->id . " " . $user->userName;
 
-                        $users = User::findAllUsers();
-                        foreach ($users as $user) {
-                            echo $user->userName . "<br>";
-                        }
+                        // $users = User::findAllUsers();
+                        // foreach ($users as $user) {
+                        //     echo $user->userName . "<br>";
+                        // }
+
+                        $foundUser = User::findUsersById(2);
+                        echo $foundUser->userName;
                      
                         
                         
