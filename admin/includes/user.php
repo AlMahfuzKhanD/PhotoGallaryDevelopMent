@@ -14,16 +14,9 @@ class User {
 	public static function findUsersById($userId){
 		$theResultArray = self::findThisQuery("SELECT * FROM users WHERE id =$userId LIMIT 1");
 
-		return !empty($theResultArray) ? array_shift($theResultArray) : false;
+		return !empty($theResultArray) ? array_shift($theResultArray) : false; //catching first item of the array or return false
 
-		// if(!empty($TheResultArray;)){
-		// 	$firstItem = array_shift($theResultArray); // return first item of the array
-		// 	return $firstItem;
-		// }else{
-		// 	return false;
-		// }
-
-		//return $TheResultArray; //sending data
+		
 	} //end findUserById method
 
 	public static function findThisQuery($sql){ //this method for query
@@ -39,6 +32,20 @@ class User {
 
 		return $theObjectArray; // returning array value
 	} //end findThisQuery
+
+	public static function verifyUser(){
+		global $database;
+		$userName = $database->scapeString($userName);
+		$password = $database->scapeString($password);
+		$sql = "SELECT * FROM users WHERE ";
+		$sql .= "userName = '{$userName}' ";
+		$sql .= "AND password = '{$password}' ";
+		$sql .= "LIMIT 1";
+
+		$theResultArray = self::findThisQuery($sql);
+
+		return !empty($theResultArray) ? array_shift($theResultArray) : false;
+	}
 
 	public static function instantiation($userRecord){
 		$theObject = new self;
@@ -65,6 +72,7 @@ class User {
 
 
 	}
+
 
 
 } //end User class
