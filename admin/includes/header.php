@@ -1,5 +1,5 @@
 <?php ob_start(); ?> <!-- ob start use for redirection -->
-<?php include("init.php"); ?>
+<?php require_once("init.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
