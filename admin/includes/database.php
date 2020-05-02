@@ -35,7 +35,7 @@ class Database{
 
 	public function  scapeString($string){
 		$scapedString = $this->connection->real_escape_string($string);
-		return $scapestring;
+		return $scapedString;
 	} //end scapestring
 
 	public function theInsertId(){
