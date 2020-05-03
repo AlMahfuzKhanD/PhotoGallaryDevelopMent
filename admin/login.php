@@ -1,4 +1,4 @@
-<?php require_once("init.php"); ?>
+<?php require_once("includes/header.php"); ?>
 <?php 
 
 if($session->isSignedIn()){
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
 
 <div class="col-md-4 col-md-offset-3">
 
-<h4 class="bg-danger"><?php echo $theMessage; ?></h4>
+<h4 class="bg-danger"><?php //echo $theMessage; ?></h4>
 	
 <form id="login-id" action="" method="post">
 	

@@ -33,7 +33,7 @@ class User {
 		return $theObjectArray; // returning array value
 	} //end findThisQuery
 
-	public static function verifyUser(){
+	public static function verifyUser($userName,$password){
 		global $database;
 		$userName = $database->scapeString($userName);
 		$password = $database->scapeString($password);
