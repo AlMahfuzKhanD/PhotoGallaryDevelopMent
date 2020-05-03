@@ -1,5 +1,10 @@
 <?php include("includes/header.php"); ?>
-<?php if(!$session->isSignedIn()) {redirect("login.php");}?>
+<?php 
+ if(!$session->isSignedIn()) {  // here is a problem. if i put ! it is not working..
+     
+    redirect("login.php");
+}
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

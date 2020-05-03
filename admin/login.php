@@ -6,11 +6,12 @@ if($session->isSignedIn()){
 }
 
 if(isset($_POST['submit'])){
+	
 
-	$userName = trim($_POST['userName']);
-	$password = trim($_POST['password']);
+	 $userName = trim($_POST['userName']);
+	 $password = trim($_POST['password']);
 
-	// method to check database user
+	//method to check database user
 	$userFound = User::verifyUser($userName,$password);
 
 
@@ -22,16 +23,18 @@ if(isset($_POST['submit'])){
 	}
 	 
 }else{
-	$userName = null;
-	$password = null;
-}
+	$theMessage = "";
+	$userName = "";
+	$password = "";
+} 
+
 
 ?>
 
 
 <div class="col-md-4 col-md-offset-3">
 
-<h4 class="bg-danger"><?php //echo $theMessage; ?></h4>
+<h4 class="bg-danger"><?php echo $theMessage; ?></h4>
 	
 <form id="login-id" action="" method="post">
 	

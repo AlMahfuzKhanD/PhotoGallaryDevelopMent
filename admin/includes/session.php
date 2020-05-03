@@ -2,16 +2,37 @@
 
 class Session{
 
-private $signedIn =  false;
+public $signedIn =  false;
 public $userId;
+public $message;
 
 
-	function _construct(){
+	function __construct(){
 		session_start();
 		$this->checkTheLogin();
+		$this->checkMessage();
+
 	}// end __construct
 
-	public function isSignedIn(){
+	public function message($msg=""){
+		if(!empty($msg)){
+			$_SESSION['message'] = $msg;
+
+		}else{
+			return $this->message;
+		}
+	} // end message
+
+	private function checkMessage(){
+		if(isset($_SESSION['message'])){
+			$this->message = $_SESSION['message'];
+			unset($_SESSION['message']);
+		}else{
+			$this->message = "";
+		}
+	} //end checkMessage
+
+	public function isSignedIn(){ //getter method
 		return $this->signedIn;
 	}//end isSignedIn
 
@@ -43,5 +64,10 @@ public $userId;
 } //end class Session 
 
 $session = new Session();
+
+
+
+
+
 
 ?>

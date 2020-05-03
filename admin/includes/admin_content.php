@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
 
                 <!-- Page Heading -->
@@ -28,8 +29,12 @@
                         //     echo $user->userName . "<br>";
                         // }
 
-                        $foundUser = User::findUsersById(2);
-                        echo $foundUser->userName;
+
+
+                         //$foundUser = User::verifyUser('rico','123');
+                        // $user = User::instantiation($foundUser);
+                        //echo $foundUser->userName;
+                        //echo $session->signedIn;
                         
                         
                      
