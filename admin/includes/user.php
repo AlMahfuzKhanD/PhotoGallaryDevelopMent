@@ -75,13 +75,20 @@ class User {
 
 	public function create(){
 		global $database;
-		$sql = "INSERT INTO users  (userName, password, firstName, lastName)";
+		$sql = "INSERT INTO users  (userName, password, firstName, lastName) ";
 		$sql .= "VALUES ('";
 		$sql .= $database->scapeString($this->userName) . "', '";
 		$sql .= $database->scapeString($this->password) . "', '";
 		$sql .= $database->scapeString($this->firstName) . "', '";
 		$sql .= $database->scapeString($this->lastName) . "')";
-		$sql .= $database->scapeString($this->lastName) . "')";
+		
+
+		if($database->query($sql)){
+			$this->id = $database->theInsertId();
+            return true;
+		}else{
+            return false;
+		}
 	} // end of create()
 
 } //end User class

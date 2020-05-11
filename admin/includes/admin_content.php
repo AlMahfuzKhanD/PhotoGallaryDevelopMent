@@ -35,7 +35,15 @@
                         // $user = User::instantiation($foundUser);
                         //echo $foundUser->userName;
                         //echo $session->signedIn;
-                        
+
+
+                        $user = new User();
+                        $user->userName = "mah";
+                        $user->password = "123";
+                        $user->firstName = "mah";
+                        $user->lastName = "khan";
+
+                        $user->create();
                         
                      
                         
