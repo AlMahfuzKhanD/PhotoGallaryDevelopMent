@@ -1,6 +1,8 @@
 <?php
 class User {
 
+	protected static $dbTable = "users";
+	protected static $dbTableFields = array('userName', 'password', 'firstName', 'lastName');
 	public $id;
 	public $userName;
 	public $firstName;
@@ -67,20 +69,32 @@ class User {
 	} // end instantiation
 
 	private  function hasTheAttribute($theAttribute){
-		$objectProperties = get_object_vars($this); // checking oproerties
+		$objectProperties = get_object_vars($this); // collecting oproerties
         return array_key_exists($theAttribute, $objectProperties); //it will return key exists or not
 
 
 	} //end of hasTheAttribute
 
+	protected function properties(){ //this function will pull out all the  properties of the class
+		foreach (self::$dbTableFields as $dbField) {
+			if(property_exists($this, $dbField)){
+				$properties[$dbField] = $this->$dbField;
+			}
+		}
+        return $properties;
+
+	} //end of properties
+
+	public function save(){ // this function will  check if the uid is already in the database or not. if existed id it will execute update()
+		return isset($this->id) ? $this->update() : $this->create();
+	} //end save()
+
 	public function create(){
 		global $database;
-		$sql = "INSERT INTO users  (userName, password, firstName, lastName) ";
-		$sql .= "VALUES ('";
-		$sql .= $database->scapeString($this->userName) . "', '";
-		$sql .= $database->scapeString($this->password) . "', '";
-		$sql .= $database->scapeString($this->firstName) . "', '";
-		$sql .= $database->scapeString($this->lastName) . "')";
+		$properties = $this->properties();
+		$sql = "INSERT INTO " . self::$dbTable ." (" . implode(",",array_keys($properties)) . ") ";
+		$sql .= "VALUES ('" . implode("','",array_values($properties)) ."')";
+		
 		
 
 		if($database->query($sql)){
@@ -93,9 +107,9 @@ class User {
 
 	public function update(){
 		global $database;
-		$sql = "UPDATE users SET ";
+		$sql = "UPDATE " . self::$dbTable ." SET ";
 		$sql .= "userName= '" . $database->scapeString($this->userName) . "', ";
-		$sql .= "password= '" . $database->scapeString($this->userName) . "', ";
+		$sql .= "password= '" . $database->scapeString($this->password) . "', ";
 		$sql .= "firstName= '" . $database->scapeString($this->firstName) . "', ";
 		$sql .= "lastName= '" . $database->scapeString($this->lastName) . "' ";
 		$sql .= " WHERE id= " . $database->scapeString($this->id) ;
@@ -108,7 +122,7 @@ class User {
 
 	public function delete(){
 		global $database;
-		$sql = "DELETE FROM users " ;
+		$sql = "DELETE FROM " . self::$dbTable ." " ;
 		$sql .= "WHERE id= " . $database->scapeString($this->id) ." ";
 		$sql .= " LIMIT 1";
 		

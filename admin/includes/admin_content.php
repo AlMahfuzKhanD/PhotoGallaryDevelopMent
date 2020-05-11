@@ -37,16 +37,26 @@
                         //echo $session->signedIn;
 
 
-                        //$user = new User();
-                        // $user->userName = "mah";
-                        // $user->password = "123";
-                        // $user->firstName = "mah";
-                        // $user->lastName = "khan";
+                       $user = new User();
+                        $user->userName = "abstraction";
+                        $user->password = "123";
+                        $user->firstName = "mah";
+                        $user->lastName = "khan";
 
-                        // $user->create();
-                        $user = User::findUsersById(3);
+                         $user->create();
+                        // $user = User::findUsersById(6);
+
                       
-                        $user->delete();
+                        // $user->delete();
+                        $user = new User();
+
+                        //$user = User::findUsersById(5);
+                       
+                        $user->userName = "abstract";
+                        $user->password = "12345";
+                        
+                        $user->save();
+                        ;
 
                         
                      
