@@ -37,13 +37,17 @@
                         //echo $session->signedIn;
 
 
-                        $user = new User();
-                        $user->userName = "mah";
-                        $user->password = "123";
-                        $user->firstName = "mah";
-                        $user->lastName = "khan";
+                        //$user = new User();
+                        // $user->userName = "mah";
+                        // $user->password = "123";
+                        // $user->firstName = "mah";
+                        // $user->lastName = "khan";
 
-                        $user->create();
+                        // $user->create();
+                        $user = User::findUsersById(3);
+                      
+                        $user->delete();
+
                         
                      
                         

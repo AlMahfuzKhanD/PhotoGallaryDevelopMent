@@ -91,6 +91,33 @@ class User {
 		}
 	} // end of create()
 
+	public function update(){
+		global $database;
+		$sql = "UPDATE users SET ";
+		$sql .= "userName= '" . $database->scapeString($this->userName) . "', ";
+		$sql .= "password= '" . $database->scapeString($this->userName) . "', ";
+		$sql .= "firstName= '" . $database->scapeString($this->firstName) . "', ";
+		$sql .= "lastName= '" . $database->scapeString($this->lastName) . "' ";
+		$sql .= " WHERE id= " . $database->scapeString($this->id) ;
+
+		$database->query($sql);
+	
+		return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+	} // end of update()
+
+	public function delete(){
+		global $database;
+		$sql = "DELETE FROM users " ;
+		$sql .= "WHERE id= " . $database->scapeString($this->id) ." ";
+		$sql .= " LIMIT 1";
+		
+		$database->query($sql);
+	
+		return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+		
+	} // end of delete()
+
 } //end User class
 
 
