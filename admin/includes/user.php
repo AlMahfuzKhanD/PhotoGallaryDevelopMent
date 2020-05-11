@@ -71,9 +71,20 @@ class User {
         return array_key_exists($theAttribute, $objectProperties); //it will return key exists or not
 
 
-	}
+	} //end of hasTheAttribute
 
-
+	public function create(){
+		global $database;
+		$sql = "INSERT INTO users  (userName, password, firstName, lastName)";
+		$sql .= "VALUES ('";
+		$sql .= $database->scapeString($this->userName) . "', '";
+		$sql .= $database->scapeString($this->password) . "', '";
+		$sql .= $database->scapeString($this->firstName) . "', '";
+		$sql .= $database->scapeString($this->lastName) . "')";
+		$sql .= $database->scapeString($this->lastName) . "')";
+	} // end of create()
 
 } //end User class
+
+
 ?>
