@@ -85,13 +85,25 @@ class User {
 
 	} //end of properties
 
+	protected function cleanProperties(){
+		global $database;
+		$cleanProperties = array();
+		foreach ($this->properties() as $key => $value) {
+			$cleanProperties[$key] = $database->scapeString($value);
+		}
+
+		return $cleanProperties;
+
+
+	} //end cleanProperties
+
 	public function save(){ // this function will  check if the uid is already in the database or not. if existed id it will execute update()
 		return isset($this->id) ? $this->update() : $this->create();
 	} //end save()
 
 	public function create(){
 		global $database;
-		$properties = $this->properties();
+		$properties = $this->cleanProperties();
 		$sql = "INSERT INTO " . self::$dbTable ." (" . implode(",",array_keys($properties)) . ") ";
 		$sql .= "VALUES ('" . implode("','",array_values($properties)) ."')";
 		
@@ -108,7 +120,7 @@ class User {
 	public function update(){
 		global $database;
 
-		$properties = $this->properties();
+		$properties = $this->cleanProperties();
 		$propertyPairs = array();
 
 		foreach ($properties as $key => $value) {

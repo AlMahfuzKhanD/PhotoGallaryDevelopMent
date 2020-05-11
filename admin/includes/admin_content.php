@@ -45,10 +45,10 @@
 
                          // $user->create();
                         $user = User::findUsersById(10);
-                        $user->userName = "uname";
-                        $user->password = "123";
-                        $user->firstName = "first";
-                        $user->lastName = "last";
+                        $user->userName = "test";
+                        $user->password = "1234";
+                        $user->firstName = "last";
+                        $user->lastName = "first";
 
                       
                         $user->update();
