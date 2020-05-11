@@ -107,11 +107,17 @@ class User {
 
 	public function update(){
 		global $database;
+
+		$properties = $this->properties();
+		$propertyPairs = array();
+
+		foreach ($properties as $key => $value) {
+			$propertyPairs[] =  "{$key}='{$value}'";
+		}
+
+
 		$sql = "UPDATE " . self::$dbTable ." SET ";
-		$sql .= "userName= '" . $database->scapeString($this->userName) . "', ";
-		$sql .= "password= '" . $database->scapeString($this->password) . "', ";
-		$sql .= "firstName= '" . $database->scapeString($this->firstName) . "', ";
-		$sql .= "lastName= '" . $database->scapeString($this->lastName) . "' ";
+		$sql .= implode(", ",$propertyPairs);
 		$sql .= " WHERE id= " . $database->scapeString($this->id) ;
 
 		$database->query($sql);
