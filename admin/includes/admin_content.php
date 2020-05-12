@@ -54,16 +54,23 @@
                         // $user->update();
                         //$user = new User();
 
-                        $user = User::findById(11);
+                        // $user = User::findById(11);
                        
                        
                         
-                        $user->delete();
+                       // $user->delete();
 
-                        // $users = User::findAll();
-                        // foreach ($users as $user) {
-                        //     echo $user->userName;
+                        // $photos = Photo::findAll();
+                        // foreach ($photos as $photo) {
+                        //     echo $photo->photoTitle;
                         // }
+
+                        // $photo = new Photo();
+                        // $photo->photoTitle = "abstraction";
+                        // $photo->photoSize = 20;
+                      
+
+                        //  $photo->create();
                         
                         
                      
