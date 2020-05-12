@@ -9,12 +9,12 @@ class User {
 	public $lastName;
 	public $password;
 
-	public static function findAllUsers(){
-		return  self::findThisQuery("SELECT * FROM users");
+	public static function findAll(){
+		return  self::findThisQuery("SELECT * FROM " . self::$dbTable ."");
 	} //end findAllUser method
 
-	public static function findUsersById($userId){
-		$theResultArray = self::findThisQuery("SELECT * FROM users WHERE id =$userId LIMIT 1");
+	public static function findById($userId){
+		$theResultArray = self::findThisQuery("SELECT * FROM " . self::$dbTable ." WHERE id =$userId LIMIT 1");
 
 		return !empty($theResultArray) ? array_shift($theResultArray) : false; //catching first item of the array or return false
 
@@ -39,7 +39,7 @@ class User {
 		global $database;
 		$userName = $database->scapeString($userName);
 		$password = $database->scapeString($password);
-		$sql = "SELECT * FROM users WHERE ";
+		$sql = "SELECT * FROM " . self::$dbTable ." WHERE ";
 		$sql .= "userName = '{$userName}' ";
 		$sql .= "AND password = '{$password}' ";
 		$sql .= "LIMIT 1";

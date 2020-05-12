@@ -44,14 +44,14 @@
                        //  $user->lastName = "khan";
 
                          // $user->create();
-                        $user = User::findUsersById(10);
-                        $user->userName = "test";
-                        $user->password = "1234";
-                        $user->firstName = "last";
-                        $user->lastName = "first";
+                        // $user = User::findUsersById(10);
+                        // $user->userName = "test";
+                        // $user->password = "1234";
+                        // $user->firstName = "last";
+                        // $user->lastName = "first";
 
                       
-                        $user->update();
+                        // $user->update();
                         //$user = new User();
 
                         //$user = User::findUsersById(5);
