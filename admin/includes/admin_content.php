@@ -54,12 +54,16 @@
                         // $user->update();
                         //$user = new User();
 
-                        //$user = User::findUsersById(5);
+                        $user = User::findById(11);
                        
-                        // $user->userName = "abstract";
-                        // $user->password = "12345";
+                       
                         
-                        // $user->save();
+                        $user->delete();
+
+                        // $users = User::findAll();
+                        // foreach ($users as $user) {
+                        //     echo $user->userName;
+                        // }
                         
                         
                      
