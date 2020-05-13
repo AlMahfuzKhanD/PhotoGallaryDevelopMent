@@ -2,10 +2,26 @@
 <?php if(!$session->isSignedIn()) { redirect("login.php"); } ?>
 
 <?php
+
+$message = " ";
+
 if(isset($_POST['submit'])) {
     $photo  = new Photo();
-    
-}
+    $photo->title  = $_POST['title'];
+    $photo->setFile($_FILES['fileUpload']);
+
+    if($photo->save()){
+        $message = "Photo uploaded successfully";
+    }else{
+
+        $message = join("<br>", $photo->errors);
+
+    } // end nested if else
+
+
+
+} // end if
+
 ?>
 
 <!-- Navigation -->
@@ -43,7 +59,8 @@ if(isset($_POST['submit'])) {
                 </h1>
 
                 <div class="col-md-6">
-                    <form action="uploads.php" method="post" enctype="mulipart/form-data">
+                    <?php echo $message; ?>
+                    <form action="uploads.php" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <input type="text" name="title" class="form-control">

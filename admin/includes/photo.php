@@ -14,9 +14,9 @@ class Photo extends DbObject{
 	public $uploadDirectory = "images";
 	public $errors = array();
 
-	public $uploadErrorArray = array(
+	public $uploadErrorsArray = array(
 
-		UPLOAD_ERR_OK => "There is no error.",
+		UPLOAD_ERR_OK => "There is no errors.",
 		UPLOAD_ERR_INI_SIZE => "The uploaded file exceds the upload_max_filesize directive in php.ini.",
 		UPLOAD_ERR_FORM_SIZE => "The uploaded file exceds the MAX_FILE_SIZE directive that was specified in the HTML file.",
 		UPLOAD_ERR_PARTIAL => "The uploaded file was only partially uploaded.",
@@ -32,17 +32,17 @@ class Photo extends DbObject{
 	public function setFile($file){
 
 		if(empty($file) || !$file || !is_array($file)){
-			$this->error[] = "There was no file uploaded here";
+			$this->errors[] = "There was no file uploaded here";
 			return false;
 		}else if($file['error'] != 0){
-			$this->error[] = $this->upload_error_array[$file['error']];
+			$this->errors[] = $this->upload_errors_array[$file['error']];
 			return false;
 		}else{
 
 			$this->fileName = basename($file['name']);
-			$this->tmpPath = basename($file['tmpName']);
-			$this->type = basename($file['type']);
-			$this->size = basename($file['size']);
+			$this->tmpPath = $file['tmp_name'];
+			$this->type = $file['type'];
+			$this->size = $file['size'];
 
 		} // end if else 
 
@@ -55,20 +55,23 @@ class Photo extends DbObject{
 		if($this->photoId){
 			$this->update();
 		}else{
-			if(!empty($this->error)){
+			if(!empty($this->errors)){
 				return false;
 			} // end nested if
 
 			if(empty($this->fileName) || empty($this->tmpPath)){
-				$this->error[] = "the file not available";
+				$this->errors[] = "the file not available";
 				return false;
 			}
 
-			$targetPath = SITE_ROOT . DS . 'admin' .DS. $this->uploadDirectory .DS. $this->fileName;
+			//$targetPath = SITE_ROOT . DS . 'admin' .DS. $this->uploadDirectory .DS. $this->fileName;
+			$targetPath = $this->uploadDirectory. DS .$this->fileName;
 			if(file_exists($targetPath)){
-				$this->error[] = "The file {$this->fileName} already exists";
+				$this->errors[] = "The file {$this->fileName} already exists";
 				return false;
 			}
+
+			//"images/$this->fileName"
 
 			if(move_uploaded_file($this->tmpPath, $targetPath)){
 				if($this->create()){
@@ -76,7 +79,7 @@ class Photo extends DbObject{
 					return true;
 				}
 			}else{
-				$this->error[] = "the file directory probably does not have permission";
+				$this->errors[] = "the file directory probably does not have permission";
 				return false;
 			}
 
