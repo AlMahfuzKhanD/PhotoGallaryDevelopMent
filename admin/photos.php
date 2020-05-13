@@ -59,7 +59,7 @@
                 <?php foreach ($photos as $photo) : ?>
 
                 <tr>
-                    <td><img src="<?php echo $photo->picturePath(); ?>" alt="no image" width="50">
+                    <td><img class="admin_photo_thumbnail" src="<?php echo $photo->picturePath(); ?>" alt="no image">
 
                     <div class="picturesLink">
                         <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>

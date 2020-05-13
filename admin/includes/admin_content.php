@@ -44,20 +44,24 @@
                        //  $user->lastName = "khan";
 
                          // $user->create();
-                        // $user = User::findUsersById(10);
-                        // $user->userName = "test";
-                        // $user->password = "1234";
-                        // $user->firstName = "last";
-                        // $user->lastName = "first";
+                        // $photo = Photo::findById(8);
+                        // $photo->title = "title";
+                        // $photo->caption = "caption new";
+                        // $photo->alternateText = "alt text";
+                        // $photo->description = "description new";
+                        // $photo->fileName = "filename";
+                        //  $photo->type = "type";
+                        //  $photo->size = "21887";
+                         
 
                       
-                        // $user->update();
+                        // $photo->update();
                         //$user = new User();
 
                          // $user = User::findById(8);
                          // echo $user->userName;
-                        $photo = Photo::findById(3);
-                         echo $photo->fileName;
+                        // $photo = Photo::findById(3);
+                        //  echo $photo->fileName;
                        
                        
                         

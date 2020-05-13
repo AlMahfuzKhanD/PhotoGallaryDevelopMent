@@ -2,13 +2,17 @@
 class Photo extends DbObject{
 
 	protected static $dbTable = "photos";
-	protected static $dbTableFields = array('title', 'description', 'fileName', 'type', 'size');
+	protected static $dbTableFields = array('title', 'caption', 'description', 'fileName', 'alternateText', 'type', 'size');
 	public $id;
 	public $title;
+	public $caption;
 	public $description;
 	public $fileName;
+	public $alternateText;
 	public $type;
 	public $size;
+	
+	
 
 	public $tmpPath;
 	public $uploadDirectory = "images";
