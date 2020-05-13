@@ -1,6 +1,13 @@
 <?php include("includes/header.php"); ?>
 <?php if(!$session->isSignedIn()) { redirect("login.php"); } ?>
 
+<?php
+if(isset($_POST['submit'])) {
+    $photo  = new Photo();
+    
+}
+?>
+
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,7 +43,7 @@
                 </h1>
 
                 <div class="col-md-6">
-                    <form action="updoads.php" method="post" enctype="mulipart/form-data">
+                    <form action="uploads.php" method="post" enctype="mulipart/form-data">
 
                     <div class="form-group">
                         <input type="text" name="title" class="form-control">

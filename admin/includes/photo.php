@@ -2,13 +2,13 @@
 class Photo extends DbObject{
 
 	protected static $dbTable = "photos";
-	protected static $dbTableFields = array('photoTitle', 'photoDescription', 'photoFIleName', 'photoType', 'photoSize');
+	protected static $dbTableFields = array('title', 'description', 'fileName', 'type', 'size');
 	public $photoId;
-	public $photoTitle;
-	public $photoDescription;
-	public $photoFIleName;
-	public $photoType;
-	public $photoSize;
+	public $title;
+	public $description;
+	public $fileName;
+	public $type;
+	public $size;
 
 	public $tmpPath;
 	public $uploadDirectory = "images";
@@ -39,10 +39,10 @@ class Photo extends DbObject{
 			return false;
 		}else{
 
-			$this->photoFIleName = basename($file['name']);
+			$this->fileName = basename($file['name']);
 			$this->tmpPath = basename($file['tmpName']);
-			$this->photoType = basename($file['type']);
-			$this->photoSize = basename($file['size']);
+			$this->type = basename($file['type']);
+			$this->size = basename($file['size']);
 
 		} // end if else 
 
@@ -59,14 +59,14 @@ class Photo extends DbObject{
 				return false;
 			} // end nested if
 
-			if(empty($this->photoFIleName) || empty($this->tmpPath)){
+			if(empty($this->fileName) || empty($this->tmpPath)){
 				$this->error[] = "the file not available";
 				return false;
 			}
 
-			$targetPath = SITE_ROOT . DS . 'admin' .DS. $this->uploadDirectory .DS. $this->photoFIleName;
+			$targetPath = SITE_ROOT . DS . 'admin' .DS. $this->uploadDirectory .DS. $this->fileName;
 			if(file_exists($targetPath)){
-				$this->error[] = "The file {$this->photoFIleName} already exists";
+				$this->error[] = "The file {$this->fileName} already exists";
 				return false;
 			}
 
