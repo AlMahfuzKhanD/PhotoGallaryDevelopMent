@@ -44,7 +44,7 @@ class Photo extends DbObject{
 			$this->photoType = basename($file['type']);
 			$this->photoSize = basename($file['size']);
 
-		}
+		} // end if else 
 
 		
 

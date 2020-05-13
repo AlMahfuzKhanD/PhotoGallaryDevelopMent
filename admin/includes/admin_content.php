@@ -71,7 +71,7 @@
                       
 
                         //  $photo->create();
-                        echo INCLUDES_PATH;
+                        //echo INCLUDES_PATH;
                         
                         
                      
