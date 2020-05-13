@@ -60,10 +60,10 @@
                         
                        // $user->delete();
 
-                        // $photos = Photo::findAll();
-                        // foreach ($photos as $photo) {
-                        //     echo $photo->photoTitle;
-                        // }
+                        $photos = Photo::findAll();
+                        foreach ($photos as $photo) {
+                            echo $photo->fileName;
+                        }
 
                         // $photo = new Photo();
                         // $photo->photoTitle = "abstraction";

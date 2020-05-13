@@ -50,6 +50,10 @@ class Photo extends DbObject{
 
 	} // end setFile
 
+	public function picturePath(){
+		return $this->uploadDirectory.DS.$this->fileName;
+	}
+
 	public function save(){
 
 		if($this->photoId){
