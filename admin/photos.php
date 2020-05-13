@@ -33,14 +33,29 @@
                             Photos
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                        
+                        <div class="col-md-12">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Id</th>
+                                        <th>File Name</th>
+                                        <th>Title</th>
+                                        <th>Size</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr></tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                </tbody>
+                            </table> <!-- end table -->
+
+                        </div><!--  end col-md-12 -->
+
                     </div>
                 </div>
                 <!-- /.row -->
