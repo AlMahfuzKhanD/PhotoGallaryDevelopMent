@@ -41,36 +41,46 @@
                             <small>Subheading</small>
                         </h1>
                         
-                        <div class="col-md-12">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Photo</th>
-                                        <th>Id</th>
-                                        <th>File Name</th>
-                                        <th>Title</th>
-                                        <th>Size</th>
-                                        <th>type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Id</th>
+                    <th>File Name</th>
+                    <th>Title</th>
+                    <th>Size</th>
+                    <th>type</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
 
-                                    <?php foreach ($photos as $photo) : ?>
+                <?php foreach ($photos as $photo) : ?>
 
-                                    <tr>
-                                        <td><img src="<?php echo $photo->picturePath(); ?>" alt="no image" width="50"></td>
-                                        <td><?php echo $photo->photoId; ?></td>
-                                        <td><?php echo $photo->fileName; ?></td>
-                                        <td><?php echo $photo->title; ?></td>
-                                        <td><?php echo $photo->size; ?></td>
-                                        <td><?php echo $photo->type; ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                                    
-                                </tbody>
-                            </table> <!-- end table -->
+                <tr>
+                    <td><img src="<?php echo $photo->picturePath(); ?>" alt="no image" width="50">
 
-                        </div><!--  end col-md-12 -->
+                    <div class="picturesLink">
+                        <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                        <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
+                        <a href="view_photo.php?id=<?php echo $photo->id; ?>">View</a>
+                    </div>
+
+                    </td>
+                    <td><?php echo $photo->id; ?></td>
+                    <td><?php echo $photo->fileName; ?></td>
+                    <td><?php echo $photo->title; ?></td>
+                    <td><?php echo $photo->size; ?></td>
+                    <td><?php echo $photo->type; ?></td>
+               
+                </tr>
+            <?php endforeach; ?>
+                
+            </tbody>
+        </table> <!-- end table -->
+
+    </div><!--  end col-md-12 -->
 
                     </div>
                 </div>

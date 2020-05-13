@@ -3,7 +3,7 @@ class Photo extends DbObject{
 
 	protected static $dbTable = "photos";
 	protected static $dbTableFields = array('title', 'description', 'fileName', 'type', 'size');
-	public $photoId;
+	public $id;
 	public $title;
 	public $description;
 	public $fileName;
@@ -56,7 +56,7 @@ class Photo extends DbObject{
 
 	public function save(){
 
-		if($this->photoId){
+		if($this->id){
 			$this->update();
 		}else{
 			if(!empty($this->errors)){
@@ -93,6 +93,17 @@ class Photo extends DbObject{
 
 
 	} //end photoSave
+
+	public function deletePhoto(){
+		if($this->delete()){
+			$targetPath = $this->picturePath();
+
+			return unlink($targetPath) ? true :false;
+			
+		}else{
+			return false;
+		} // end else if
+	} // end deletePhoto
 
 
 

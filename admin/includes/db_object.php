@@ -9,8 +9,8 @@ class DbObject {
 		return  static::findByQuery("SELECT * FROM " . static::$dbTable ."");
 	} //end findAllUser method
 
-	public static function findById($userId){
-		$theResultArray = static::findByQuery("SELECT * FROM " . static::$dbTable ." WHERE id =$userId LIMIT 1");
+	public static function findById($id){
+		$theResultArray = static::findByQuery("SELECT * FROM " . static::$dbTable ." WHERE id =$id LIMIT 1");
 
 		return !empty($theResultArray) ? array_shift($theResultArray) : false; //catching first item of the array or return false
 
