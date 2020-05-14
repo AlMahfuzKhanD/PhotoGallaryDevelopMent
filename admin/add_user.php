@@ -2,6 +2,8 @@
 <?php if(!$session->isSignedIn()) { redirect("login.php"); } ?>
 <?php
 
+//$message = " ";
+
 $user = new User();
 if(isset($_POST['create'])){
 
@@ -13,7 +15,8 @@ if(isset($_POST['create'])){
         $user->lastName = $_POST['lastName'];
         $user->password = $_POST['password'];
 
-       // $user->save();
+        $user->setFile($_FILES['userImage']);
+        $user->saveDataAndImage();
     } // end nested if
 
 } // end if

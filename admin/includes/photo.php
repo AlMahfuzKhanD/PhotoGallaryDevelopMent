@@ -16,20 +16,7 @@ class Photo extends DbObject{
 
 	public $tmpPath;
 	public $uploadDirectory = "images";
-	public $errors = array();
-
-	public $uploadErrorsArray = array(
-
-		UPLOAD_ERR_OK => "There is no errors.",
-		UPLOAD_ERR_INI_SIZE => "The uploaded file exceds the upload_max_filesize directive in php.ini.",
-		UPLOAD_ERR_FORM_SIZE => "The uploaded file exceds the MAX_FILE_SIZE directive that was specified in the HTML file.",
-		UPLOAD_ERR_PARTIAL => "The uploaded file was only partially uploaded.",
-		UPLOAD_ERR_NO_FILE => "No file was uploaded.",
-		UPLOAD_ERR_NO_TMP_DIR => "Missing a temporary folder.",
-		UPLOAD_ERR_CANT_WRITE => "Failed to write file to disk.",
-		UPLOAD_ERR_EXTENSION => "A PHP extension stopped the file upload."
-
-	); // end array
+	
 
 	//this is passing $_FIlES['uploaded_file'] as an argument
 

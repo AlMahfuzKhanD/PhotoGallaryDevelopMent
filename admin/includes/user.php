@@ -13,6 +13,67 @@ class User extends DbObject {
 	public $uploadDirectory = "images";
 	public $imagePlaceHolder = "http://placehold.it/400x400&text=image";
 
+	public function setFile($file){
+
+		if(empty($file) || !$file || !is_array($file)){
+			$this->errors[] = "There was no file uploaded here";
+			return false;
+		}else if($file['error'] != 0){
+			$this->errors[] = $this->upload_errors_array[$file['error']];
+			return false;
+		}else{
+
+			$this->userImage = basename($file['name']);
+			$this->tmpPath = $file['tmp_name'];
+			$this->type = $file['type'];
+			$this->size = $file['size'];
+
+		} // end if else 
+
+		
+
+	} // end setFile
+
+	public function saveDataAndImage(){
+
+		if($this->id){
+			$this->update();
+		}else{
+			if(!empty($this->errors)){
+				return false;
+			} // end nested if
+
+			if(empty($this->userImage) || empty($this->tmpPath)){
+				$this->errors[] = "the file not available";
+				return false;
+			}
+
+			//$targetPath = SITE_ROOT . DS . 'admin' .DS. $this->uploadDirectory .DS. $this->userImage;
+			$targetPath = $this->uploadDirectory. DS .$this->userImage;
+			if(file_exists($targetPath)){
+				$this->errors[] = "The file {$this->userImage} already exists";
+				return false;
+			}
+
+			//"images/$this->userImage"
+
+			if(move_uploaded_file($this->tmpPath, $targetPath)){
+				if($this->create()){
+					unset($this->tmpPath);
+					return true;
+				}
+			}else{
+				$this->errors[] = "the file directory probably does not have permission";
+				return false;
+			}
+
+			
+
+		} // end if else
+
+
+	} //end photoSave
+
 
 	public function imagePlaceHolder(){
 		return empty($this->userImage) ? $this->imagePlaceHolder : $this->uploadDirectory.DS.$this->userImage;
