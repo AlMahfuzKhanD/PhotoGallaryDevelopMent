@@ -2,12 +2,21 @@
 class User extends DbObject {
 
 	protected static $dbTable = "users";
-	protected static $dbTableFields = array('userName', 'password', 'firstName', 'lastName');
+	protected static $dbTableFields = array('userName', 'password', 'firstName', 'lastName', 'userImage');
 	public $id;
 	public $userName;
 	public $firstName;
 	public $lastName;
 	public $password;
+	public $userImage;
+
+	public $uploadDirectory = "images";
+	public $imagePlaceHolder = "http://placehold.it/400x400&text=image";
+
+
+	public function imagePlaceHolder(){
+		return empty($this->userImage) ? $this->imagePlaceHolder : $this->uploadDirectory.DS.$this->userImage;
+	} //end image place holder  
 
 	
 

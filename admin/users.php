@@ -59,21 +59,20 @@
                 <?php foreach ($users as $user) : ?>
 
                 <tr>
-                    <td><img class="admin_user_thumbnail" src="<?php echo $user->picturePath(); ?>" alt="no image">
-
-                    <div class="picturesLink">
-                        <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
-                        <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
-                        <a href="view_user.php?id=<?php echo $user->id; ?>">View</a>
-                    </div>
-
-                    </td>
                     <td><?php echo $user->id; ?></td>
-                    <td><?php echo $user->fileName; ?></td>
-                    <td><?php echo $user->title; ?></td>
-                    <td><?php echo $user->size; ?></td>
-                    <td><?php echo $user->type; ?></td>
-               
+                    <td><img class="admin_user_thumbnail userImage" src="<?php echo $user->imagePlaceHolder(); ?>" alt="no image"></td>
+                    
+                    <td><?php echo $user->userName; ?>
+
+                        <div class="actionssLink">
+                            <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                            <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
+                            <a href="view_user.php?id=<?php echo $user->id; ?>">View</a>
+                        </div>
+                        
+                    </td>
+                    <td><?php echo $user->firstName; ?></td>
+                    <td><?php echo $user->lastName; ?></td>
                 </tr>
             <?php endforeach; ?>
                 

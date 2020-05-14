@@ -3,6 +3,11 @@
 	border-radius: 10px; 
 }
 
+.userImage{
+	width: 62px;
+	height: 62px;
+}
+
 /****** edit photo css ******/
 .photo-info-box {
 
