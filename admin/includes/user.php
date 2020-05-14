@@ -34,7 +34,22 @@ class User extends DbObject {
 		$theResultArray = self::findByQuery($sql);
 
 		return !empty($theResultArray) ? array_shift($theResultArray) : false;
-	}
+	} // end verify user
+
+	public function picturePath(){
+		return $this->uploadDirectory.DS.$this->userImage;
+	} // end picturepath
+
+	public function deleteUser(){
+		if($this->delete()){
+			$targetPath = $this->picturePath();
+
+			return unlink($targetPath) ? true :false;
+			
+		}else{
+			return false;
+		} // end else if
+	} // end deletePhoto
 
 	
 
