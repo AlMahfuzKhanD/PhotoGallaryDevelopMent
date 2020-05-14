@@ -70,7 +70,7 @@
                         <div class="actionssLink">
                             <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
                             <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
-                            <a href="view_user.php?id=<?php echo $user->id; ?>">View</a>
+                            
                         </div>
                         
                     </td>

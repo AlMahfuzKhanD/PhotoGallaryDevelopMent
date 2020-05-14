@@ -34,11 +34,11 @@ class User extends DbObject {
 
 	} // end setFile
 
-	public function saveDataAndImage(){
 
-		if($this->id){
-			$this->update();
-		}else{
+
+	public function uploadPhoto(){
+
+		
 			if(!empty($this->errors)){
 				return false;
 			} // end nested if
@@ -58,10 +58,10 @@ class User extends DbObject {
 			//"images/$this->userImage"
 
 			if(move_uploaded_file($this->tmpPath, $targetPath)){
-				if($this->create()){
+				
 					unset($this->tmpPath);
 					return true;
-				}
+				
 			}else{
 				$this->errors[] = "the file directory probably does not have permission";
 				return false;
@@ -69,7 +69,7 @@ class User extends DbObject {
 
 			
 
-		} // end if else
+		
 
 
 	} //end photoSave
