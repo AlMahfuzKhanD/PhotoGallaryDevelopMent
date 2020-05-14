@@ -1,4 +1,11 @@
-<?php include("includes/header.php"); ?>
+ <?php include("includes/header.php"); ?>
+ <?php if(!$session->isSignedIn()) { redirect("login.php"); } ?>
+ <?php  
+
+ $users = User::findAll(); 
+
+ ?>
+
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -30,17 +37,51 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Users
+                            users
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                        
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Photo</th>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php foreach ($users as $user) : ?>
+
+                <tr>
+                    <td><img class="admin_user_thumbnail" src="<?php echo $user->picturePath(); ?>" alt="no image">
+
+                    <div class="picturesLink">
+                        <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                        <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
+                        <a href="view_user.php?id=<?php echo $user->id; ?>">View</a>
+                    </div>
+
+                    </td>
+                    <td><?php echo $user->id; ?></td>
+                    <td><?php echo $user->fileName; ?></td>
+                    <td><?php echo $user->title; ?></td>
+                    <td><?php echo $user->size; ?></td>
+                    <td><?php echo $user->type; ?></td>
+               
+                </tr>
+            <?php endforeach; ?>
+                
+            </tbody>
+        </table> <!-- end table -->
+
+    </div><!--  end col-md-12 -->
+
                     </div>
                 </div>
                 <!-- /.row -->
