@@ -153,6 +153,17 @@ class DbObject {
 	// 	return $this->uploadDirectory.DS.$this->fileName;
 	// }
 
+	public static function countAll(){
+
+		global $database;
+
+		$sql = "SELECT COUNT(*) FROM " . static::$dbTable;
+		$resultSet = $database->query($sql);
+		$row = mysqli_fetch_array($resultSet);
+		return array_shift($row);
+
+	} // end countAll
+
 
 } //end of class DbObject
 

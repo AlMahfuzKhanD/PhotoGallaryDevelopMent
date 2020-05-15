@@ -3,9 +3,9 @@
 
         <!-- Footer -->
         <footer>
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p class="pull-middle">Copyright &copy; <?php echo date("Y"); ?></p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
