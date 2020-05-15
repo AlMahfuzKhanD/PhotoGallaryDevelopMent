@@ -11,7 +11,7 @@ class Comment extends DbObject {
 
 	public static function createComment($photoId, $author="John", $body=""){
 
-		if(!empty($photoId) && !empty($author && !empty($body)){
+		if(!empty($photoId) && !empty($author) && !empty($body)){
 
 			$comment = new Comment();
 
@@ -25,19 +25,21 @@ class Comment extends DbObject {
 			return false;
 		}//end if else
 
-		public static function findTheComments($photoId=0){
+		
+
+	} // end createComment
+
+	public static function findTheComments($photoId=0){
 
 			global $database;
 
 			$sql = "SELECT * FROM " . self::$dbTable;
-			$sql .= " WHERE photoId = " $database->scapeString($photoId);
-			$sql .= " ORDER BY photoId ASC" $photoId;
+			$sql .= " WHERE photoId = " . $database->scapeString($photoId);
+			$sql .= " ORDER BY photoId ASC";
 
 			return self::findByQuery($sql);
 
 		} // end findTheComments
-
-	} // end createComment
 
 
 	
