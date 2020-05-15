@@ -38,7 +38,7 @@ if(empty($_GET['id'])){
                             comments
                         </h1>
 
-                        <a href="add_comment.php" class="btn btn-primary">Add comment</a>
+                        
 
 
                         
