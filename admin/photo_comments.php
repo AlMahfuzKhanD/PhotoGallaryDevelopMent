@@ -59,15 +59,14 @@ if(empty($_GET['id'])){
                 <?php foreach ($comments as $comment) : ?>
 
                 <tr>
-                    <!-- <td><img class="admin_photo_thumbnail" src="<?php //echo $comment->//picturePath(); ?>" alt="no image">
-                    </td> -->
+                    
                     <td><?php echo $comment->id; ?></td>
                     
                     
                     <td><?php echo $comment->author; ?>
 
                         <div class="actionssLink">
-                            <a href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
+                            <a href="delete_comment_photo.php?id=<?php echo $comment->id; ?>">Delete</a>
                         </div>
                         
                     </td>

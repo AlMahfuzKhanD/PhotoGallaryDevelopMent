@@ -149,6 +149,10 @@ class DbObject {
 		
 	} // end of delete()
 
+	// public function picturePath(){
+	// 	return $this->uploadDirectory.DS.$this->fileName;
+	// }
+
 
 } //end of class DbObject
 

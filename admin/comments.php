@@ -53,6 +53,10 @@
                 <?php foreach ($comments as $comment) : ?>
 
                 <tr>
+
+                   <!--  <td><img class="admin_photo_thumbnail" src="<?php //echo Photo::picturePath(); ?>" alt="no image">
+                    </td>  -->
+
                     <td><?php echo $comment->id; ?></td>
                     
                     
