@@ -1,7 +1,7 @@
 <?php
 
 defined('DS') ?  null : define('DS', DIRECTORY_SEPARATOR);
-define('SITE_ROOT', DS . 'E:' . DS . 'xampp' . DS . 'htdocs' . DS . 'projects' . DS . 'Oop_projects' . DS . 'PhotoGallaryDevelopMent' );
+define('SITE_ROOT', DS . 'localhost' . DS . 'projects' . DS . 'Oop_projects' . DS . 'PhotoGallaryDevelopMent' );
 defined('INCLUDES_PATH') ?  null : define('INCLUDES_PATH',SITE_ROOT. DS . 'Admin' . DS . 'includes' );
 
 
@@ -14,5 +14,6 @@ require_once("user.php");
 require_once("photo.php");
 require_once("comment.php");
 require_once("session.php");
+require_once("paginate.php");
 
 ?>
