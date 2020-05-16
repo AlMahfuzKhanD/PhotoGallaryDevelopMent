@@ -20,7 +20,7 @@ $photos = Photo::findAll();
 
                         <div class="col-xs-6 col-md-3">
 
-                            <a class="thumbnail" href="">
+                            <a class="thumbnail" href="photo.php?id=<?php echo $photo->id ?>">
                                 
                                 <img class="homePagePhoto img-responsive" src="admin/<?php echo $photo->picturePath();?>" alt="">
 
