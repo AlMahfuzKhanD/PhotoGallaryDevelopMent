@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     $author = trim($_POST['author']);
     $body = trim($_POST['body']);
 
-    $newComment = Comment::createComment($photo->id, $author,$body);
+    $newComment = Comment::createComment($photo->id,$photo->fileName, $author,$body);
     if($newComment && $newComment->save()){
 
         redirect("photo.php?id={$photo->id}");

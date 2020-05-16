@@ -149,8 +149,10 @@ class DbObject {
 		
 	} // end of delete()
 
-	// public function picturePath(){
-	// 	return $this->uploadDirectory.DS.$this->fileName;
+	// public function picturePathAll(){
+	// 	$photo = new Photo();
+	// 	global $photo;
+	// 	return $photo->picturePath();
 	// }
 
 	public static function countAll(){

@@ -2,7 +2,8 @@
  <?php if(!$session->isSignedIn()) { redirect("login.php"); } ?>
  <?php  
 
- $comments = Comment::findAll(); 
+ $comments = Comment::findAll();
+ //$photos= Comment::picturePathAll(); 
 
  ?>
 
@@ -32,7 +33,7 @@
                             comments
                         </h1>
 
-                        <a href="add_comment.php" class="btn btn-primary">Add comment</a>
+                        
 
 
                         
@@ -40,6 +41,7 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
+                    <th>Photo</th>
                     <th>Id</th>
                     <th>Author</th>
                     <th>Body</th>
@@ -54,8 +56,8 @@
 
                 <tr>
 
-                   <!--  <td><img class="admin_photo_thumbnail" src="<?php //echo Photo::picturePath(); ?>" alt="no image">
-                    </td>  -->
+                    <td><img class="admin_photo_thumbnail" src="<?php echo $comment->picturePath(); ?>" alt="no image" >
+                    </td> 
 
                     <td><?php echo $comment->id; ?></td>
                     

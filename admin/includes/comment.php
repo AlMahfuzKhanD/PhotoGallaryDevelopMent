@@ -2,20 +2,23 @@
 class Comment extends DbObject { 
 
 	protected static $dbTable = "comments";
-	protected static $dbTableFields = array('id', 'photoId', 'author', 'body');
+	protected static $dbTableFields = array('id', 'photoId', 'fileName', 'author', 'body');
 	public $id;
 	public $photoId;
+	public $fileName;
 	public $author;
 	public $body;
+	public $uploadDirectory = "images";
 
 
-	public static function createComment($photoId, $author="John", $body=""){
+	public static function createComment($photoId,$fileName, $author="John", $body=""){
 
-		if(!empty($photoId) && !empty($author) && !empty($body)){
+		if(!empty($photoId) && !empty($fileName) && !empty($author) && !empty($body)){
 
 			$comment = new Comment();
 
 			$comment->photoId = (int)$photoId;
+			$comment->fileName = $fileName;
 			$comment->author  = $author;
 			$comment->body    = $body;
 
@@ -40,6 +43,11 @@ class Comment extends DbObject {
 			return self::findByQuery($sql);
 
 		} // end findTheComments
+
+		public function picturePath(){
+		return $this->uploadDirectory.DS.$this->fileName;
+	}
+
 
 
 	
