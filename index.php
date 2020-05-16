@@ -22,7 +22,7 @@ $photos = Photo::findAll();
 
                             <a class="thumbnail" href="">
                                 
-                                <img src="admin/<?php echo $photo->picturePath();?>" alt="">
+                                <img class="homePagePhoto img-responsive" src="admin/<?php echo $photo->picturePath();?>" alt="">
 
                             </a>
                             
