@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+<?php include("includes/modal.php"); ?>
 <?php if(!$session->isSignedIn()) { redirect("login.php"); } ?>
 <?php
 
@@ -45,6 +46,12 @@ if(empty($_GET['id'])){
 
  ?>
 
+ <!-- modal code -->
+
+
+
+ <!-- end modal code -->
+
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -80,7 +87,7 @@ if(empty($_GET['id'])){
                             <small>Subheading</small>
                         </h1>
 <div class="col-md-6">
-    <img class="img-responsive" src="<?php echo $user->imagePlaceHolder();?>" alt="No Image">
+    <a href="#" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->imagePlaceHolder();?>" alt="No Image"></a>
 </div>
 <form action="" method="post" enctype="multipart/form-data">                  
     <div class="col-md-6">
