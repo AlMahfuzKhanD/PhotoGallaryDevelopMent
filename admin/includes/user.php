@@ -112,6 +112,14 @@ class User extends DbObject {
 		} // end else if
 	} // end deletePhoto
 
+	public function ajaxSaveUserImage($userImage, $user_id){
+
+		$this->userImage = $userImage;
+		$this->id = $user_id;
+		$this->save();
+
+	} // end of ajaxSaveUserImage
+
 	
 
 	

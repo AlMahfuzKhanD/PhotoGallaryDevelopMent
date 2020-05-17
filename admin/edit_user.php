@@ -119,7 +119,7 @@ if(empty($_GET['id'])){
             <input type="password" name="password" class="form-control"  value="<?php echo $user->password; ?>">
         </div>
         <div class="info-box-delete pull-left">
-        <a  href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger ">Delete</a>   
+        <a id="user-id"  href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger ">Delete</a>   
         </div>
 
         <div class="form-group">
