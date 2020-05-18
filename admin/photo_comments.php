@@ -37,6 +37,7 @@ if(empty($_GET['id'])){
                         <h1 class="page-header">
                             comments
                         </h1>
+                        <p class="bg-success"><?php echo $message; ?></p>
 
                         
 

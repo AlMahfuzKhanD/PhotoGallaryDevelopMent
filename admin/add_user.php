@@ -16,7 +16,8 @@ if(isset($_POST['create'])){
         $user->password = $_POST['password'];
 
         $user->setFile($_FILES['userImage']);
-        $user->saveDataAndImage();
+        $user->uploadPhoto();
+        $user->save();
     } // end nested if
 
 } // end if

@@ -32,6 +32,7 @@
                         <h1 class="page-header">
                             Comments
                         </h1>
+                        <p class="bg-success"><?php echo $message; ?></p>
 
                         
 
