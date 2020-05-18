@@ -94,7 +94,20 @@ class Photo extends DbObject{
 		}else{
 			return false;
 		} // end else if
+
 	} // end deletePhoto
+
+	public static function displaySidebarData($photo_id){
+
+		$photo = Photo::findById($photo_id);
+		 $output = "<a class='thumbnail' href='#'><img width='100' src='{$photo->picturePath()}' alt='No Image'></a>";
+		 $output .= "<p>{$photo->fileName}</p>";
+		 $output .= "<p>{$photo->type}</p>";
+		 $output .= "<p>{$photo->size}</p>";
+
+		 echo $output;
+
+	} // end of ajaxData
 
 
 
