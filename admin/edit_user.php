@@ -22,12 +22,16 @@ if(empty($_GET['id'])){
 
             if(empty($_FILES['userImage'])){
                 $user->save();
+                redirect("users.php");
+                $session->message("The user has been updated");
             }else{
                 $user->setFile($_FILES['userImage']);
 
                 $user->uploadPhoto();
                 $user->save();
-                redirect("edit_user.php?id={$user->id}");
+               // redirect("edit_user.php?id={$user->id}");
+                redirect("users.php");
+                $session->message("The user has been updated");
             }
 
             

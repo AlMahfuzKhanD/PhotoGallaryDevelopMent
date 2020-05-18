@@ -17,6 +17,28 @@ public $count;
 
 	}// end __construct
 
+	public function message($msg=""){
+		if(!empty($msg)){
+			$_SESSION['message'] = $msg;
+
+		}else{
+			return $this->message;
+		}
+	} // end message
+
+
+
+	private function checkMessage(){
+		if(isset($_SESSION['message'])){
+			$this->message = $_SESSION['message'];
+			unset($_SESSION['message']);
+		}else{
+			$this->message = "";
+		}
+	} //end checkMessage
+
+
+
 	public function visitorCount(){
 
 		if(isset($_SESSION['count'])){
@@ -31,23 +53,9 @@ public $count;
 
 	} // end visitor coutn
 
-	public function message($msg=""){
-		if(!empty($msg)){
-			$_SESSION['message'] = $msg;
+	
 
-		}else{
-			return $this->message;
-		}
-	} // end message
-
-	private function checkMessage(){
-		if(isset($_SESSION['message'])){
-			$this->message = $_SESSION['message'];
-			unset($_SESSION['message']);
-		}else{
-			$this->message = "";
-		}
-	} //end checkMessage
+	
 
 	public function isSignedIn(){ //getter method
 		return $this->signedIn;
@@ -81,6 +89,7 @@ public $count;
 } //end class Session 
 
 $session = new Session();
+$message = $session->message();
 
 
 
