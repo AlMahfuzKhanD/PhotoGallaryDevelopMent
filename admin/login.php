@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 <form id="login-id" action="" method="post">
 	
 <div class="form-group">
-	<label for="username">Username</label>
+	<label id="login-id" for="username">Username</label>
 	<input type="text" class="form-control" name="userName" value="<?php echo htmlentities($userName); ?>" >
 
 </div>
