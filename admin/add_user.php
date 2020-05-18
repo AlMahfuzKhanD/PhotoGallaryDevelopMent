@@ -17,7 +17,9 @@ if(isset($_POST['create'])){
 
         $user->setFile($_FILES['userImage']);
         $user->uploadPhoto();
+        $session->message("The User has been Added");
         $user->save();
+        redirect("users.php");
     } // end nested if
 
 } // end if
