@@ -8,6 +8,8 @@ $(document).ready(function(){
 	var image_name;
 	var photo_id;
 
+
+
 $(".modal_thumbnails").click(function(){
 
 $("#set_user_image").prop('disabled', false);
@@ -63,6 +65,21 @@ $.ajax({
 
 }); //end click
 
+/******** edit photo side bar ********/
+
+$(".info-box-header").click(function(){
+	$(".inside").slideToggle("fast");
+	$("#toggle").toggleClass("glyphicon-menu-down glyphicon , glyphicon-menu-up glyphicon");
+});
+
+/****** delete function ****/
+
+$(".delete_link").click(function(){
+
+
+return confirm("Are you sure?");
+
+});
 
 
 }); //end document ready
