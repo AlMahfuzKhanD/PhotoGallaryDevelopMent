@@ -36,7 +36,7 @@ $.ajax({
 
 		if(!data.error){
 
-			location.reload(true);
+			$(".userImageBox a img").prop('src', data);
 			
 
 		}

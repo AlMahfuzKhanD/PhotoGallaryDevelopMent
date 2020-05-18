@@ -86,7 +86,7 @@ if(empty($_GET['id'])){
                             users
                             <small>Subheading</small>
                         </h1>
-<div class="col-md-6">
+<div class="col-md-6 userImageBox">
     <a href="#" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->imagePlaceHolder();?>" alt="No Image"></a>
 </div>
 <form action="" method="post" enctype="multipart/form-data">                  
