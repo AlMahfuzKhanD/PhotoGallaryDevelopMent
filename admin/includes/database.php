@@ -12,7 +12,7 @@ class Database{
 	public function openDbConnection(){
 		//$this->connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 		$this->connection = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-		//created object for connection
+		//created object for connection property
 		if($this->connection->connect_errno){
 			die("Dabase connection Failed" . $this->connection->connect_error);
 

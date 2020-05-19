@@ -4,6 +4,7 @@ class Session{
 
 public $signedIn =  false;
 public $userId;
+public $userName;
 public $message;
 public $count;
 
@@ -64,6 +65,7 @@ public $count;
 	public function login($user){
 		if($user){
 			$this->userId = $_SESSION['userId'] = $user->id;
+			$this->userName = $_SESSION['userName'] = $user->userName;
 			$this->signedIn = true;
 		}
 	}//end login
@@ -77,8 +79,11 @@ public $count;
 	private function checkTheLogin(){
 
 		if(isset($_SESSION['userId'])){
-			$this->userId = $_SESSION['userId'];
-			$this->signedIn = true;
+			if(isset($_SESSION['userName'])){
+				$this->userId = $_SESSION['userId'];
+				$this->userName = $_SESSION['userName'];
+				$this->signedIn = true;
+			}
 		}else{
 			unset($this->userId);
 			$this->signedIn = false;

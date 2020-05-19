@@ -4,13 +4,13 @@
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="users.php"><i class="fa fa-fw fa-bar-chart-o"></i> Users</a>
+                        <a href="users.php"><i class="fa fa-fw fa-users"></i> Users</a>
                     </li>
                     <li>
-                        <a href="uploads.php"><i class="fa fa-fw fa-table"></i> Uploads</a>
+                        <a href="uploads.php"><i class="fa fa-fw fa-file"></i> Uploads</a>
                     </li>
                     <li>
-                        <a href="photos.php"><i class="fa fa-fw fa-table"></i> Photos</a>
+                        <a href="photos.php"><i class="fa fa-fw fa-photo"></i> Photos</a>
                     </li>
                     <li>
                         <a href="comments.php"><i class="fa fa-fw fa-edit"></i> Comments</a>
